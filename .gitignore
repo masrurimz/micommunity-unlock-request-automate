@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+
+# uv
+uv.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Temp files from script
+.ui_dump.xml
+
+# Beads
+.beads/
+
+# OS
+.DS_Store
+Thumbs.db

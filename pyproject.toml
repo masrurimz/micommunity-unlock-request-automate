@@ -1,0 +1,28 @@
+[project]
+name = "micommunity-unlock-request-automate"
+version = "2.9.0"
+description = "Automate Xiaomi Mi Community unlock request at 00:00 Beijing time via ADB"
+readme = "README.md"
+license = "GPL-3.0-or-later"
+requires-python = ">=3.10"
+dependencies = [
+    "ntplib>=0.4.0",
+    "adbutils>=2.0.0",
+]
+
+[project.scripts]
+mi-unlock = "automate:main"
+
+[tool.pylint.main]
+jobs = 0
+load-plugins = [
+    "pylint.extensions.check_elif",
+    "pylint.extensions.for_any_all",
+    "pylint.extensions.set_membership",
+    "pylint.extensions.overlapping_exceptions",
+    "pylint.extensions.typing",
+    "pylint.extensions.comparison_placement",
+]
+
+[tool.pylint."messages control"]
+disable = ["missing-module-docstring"]

